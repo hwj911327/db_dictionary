@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动生成数据字典</title>
+
+    <style>
+        .munu{
+            width: 250px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            box-shadow: none;
+            border: 1px solid #d2d2d2;
+        }
+
+        .munu-title{
+            padding: 0 80px 0 20px;
+            height: 42px;
+            line-height: 42px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            color: #333;
+            overflow: hidden;
+            background-color: #F8F8F8;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .munu-content{
+            width: 100%;
+            position: absolute;
+            top: 42px;
+            bottom: 0;
+            overflow: auto;
+        }
+
+        .munu-content li{
+            line-height: 26px;
+            margin-left: 20px;
+            overflow: visible;
+            list-style-type: disc;
+        }
+        .active{
+            color: #01AAED
+        }
+    </style>
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="layui/layui.js"></script>
+
+
+
+
+
+</head>
+<body>
+
+<div class="layui-container">
+
+    <div class="munu" >
+        <div class="munu-title">目录</div>
+        <div class="munu-content">
+            <ul class="">
+              <?php echo $munu_html?>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md9 layui-col-md-offset3">
+            <h1 style="text-align:center;"><?php echo $db_name ?>数据字典</h1>
+            <p style="text-align:center;margin:20px auto;">生成时间：<?php echo date('Y-m-d H:i:s') ?> </p>
+            <?php echo $html ?>
+            <p style="text-align:left;margin:20px auto;"> 总共： <?php echo count($tables) ?>个数据表</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(".munu-content a").click(function() {
+        $(".munu-content a").removeClass("active");
+        $(this).addClass('active');
+    });
+</script>
