@@ -54,18 +54,15 @@ foreach ($tables as $k => $v) {
 
 
 $munu_html = '';
-foreach($munu as $v){
-    $munu_html.='<li><a href="#munu_'.$v.'"><cite>'.$v.'</cite></a></li>';
-}
-
-
-
-
 
 $html = '';
 // 循环所有表
 //print_r($tables);
 foreach ($tables as $k => $v) {
+
+    $munu_html.='<li><a href="#munu_'.$v['TABLE_NAME'].'"><cite>'.$v['TABLE_NAME'].'</cite><p style="color: #d2d2d2">'.$v['TABLE_COMMENT'].'</p></a></li>';
+
+
     $html .= '<table class="layui-table">';
     $html .= '<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">';
     $html .= '<a name ="munu_'.$v['TABLE_NAME'] .'"></a>';
